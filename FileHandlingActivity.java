@@ -18,6 +18,23 @@ public class FileHandlingActivity {
         }
     }
 
+    public static String readFile(String filePath){
+        StringBuilder sb = new StringBuilder();
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                sb.append(line);
+                sb.append("\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (sb.length() > 1){
+            sb.deleteCharAt(sb.length() - 1); //remove terminator
+        }
+        return sb.toString();
+    }
+
     public static void main(String[] args) {
         // Your code here
         
@@ -36,6 +53,9 @@ public class FileHandlingActivity {
         writeToFile("JavaFileSystem/data.txt", "This is the third file, the data file!");
         
         // d. Read and display file contents
+        System.out.println(readFile("JavaFileSystem/notes.txt"));
+        System.out.println(readFile("JavaFileSystem/log.txt"));
+        System.out.println(readFile("JavaFileSystem/data.txt"));
         
         // e. Create backup directory
         
