@@ -10,6 +10,14 @@ public class FileHandlingActivity {
         }
     }
 
+    public static void writeToFile(String filePath, String content){
+        try (FileWriter writer = new FileWriter(filePath)) {
+            writer.write(content);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
         // Your code here
         
@@ -23,7 +31,9 @@ public class FileHandlingActivity {
         createFile("JavaFileSystem", "data.txt");
     
         // c. Write messages to files
-
+        writeToFile("JavaFileSystem/notes.txt", "This is the notes file!");
+        writeToFile("JavaFileSystem/log.txt", "This is the second file, the log file!");
+        writeToFile("JavaFileSystem/data.txt", "This is the third file, the data file!");
         
         // d. Read and display file contents
         
