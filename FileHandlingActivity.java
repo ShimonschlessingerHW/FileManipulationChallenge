@@ -85,17 +85,17 @@ public class FileHandlingActivity {
         System.out.println(readFile("JavaFileSystem/data.txt"));
         
         // e. Create backup directory
-        createDirectory("", "Backup");
+        createDirectory("", "JavaFileSystem/Backup");
         
         // f. Copy contents to backup file
         String combinedData = "NOTES:\n" + readFile("JavaFileSystem/notes.txt") + 
         "\nLOG:\n" + readFile("JavaFileSystem/log.txt") + "\nDATA:\n" + readFile("JavaFileSystem/data.txt"); 
-        createFile("Backup", "backup.txt");
-        writeToFile("Backup/backup.txt", combinedData);
+        createFile("JavaFileSystem/Backup", "backup.txt");
+        writeToFile("JavaFileSystem/Backup/backup.txt", combinedData);
 
         // g. List all files in both directories
         File[] JavaFileSystemFiles = listFiles("JavaFileSystem");
-        File[] BackupFiles = listFiles("Backup");
+        File[] BackupFiles = listFiles("JavaFileSystem/Backup");
         
         System.out.println("Main files:");
         for (File f : JavaFileSystemFiles){
