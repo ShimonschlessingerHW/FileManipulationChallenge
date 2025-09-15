@@ -1,6 +1,14 @@
 import java.io.*;
 
 public class FileHandlingActivity {
+    public static void createDirectory(String dirPath, String dirName){
+        if (!dirPath.equals("")){
+            dirPath += "/";
+        }
+        File dir = new File(dirPath + dirName);
+        dir.mkdir();
+    }
+
     public static void createFile(String dirPath, String fileName){
         File f = new File(dirPath + "/" + fileName);
         try {
@@ -39,8 +47,7 @@ public class FileHandlingActivity {
         // Your code here
         
         // a. Create main directory
-        File mainDir = new File("JavaFileSystem");
-        mainDir.mkdir();
+        createDirectory("", "JavaFileSystem");
 
         // b. Create three text files
         createFile("JavaFileSystem", "notes.txt");
@@ -58,6 +65,7 @@ public class FileHandlingActivity {
         System.out.println(readFile("JavaFileSystem/data.txt"));
         
         // e. Create backup directory
+        createDirectory("", "Backup");
         
         // f. Copy contents to backup file
         
