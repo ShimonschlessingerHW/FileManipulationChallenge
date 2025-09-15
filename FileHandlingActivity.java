@@ -43,6 +43,11 @@ public class FileHandlingActivity {
         return sb.toString();
     }
 
+    public static File[] listFiles(String dirPath){
+        File dir = new File(dirPath);
+        return dir.listFiles();
+    }
+
     public static void main(String[] args) {
         // Your code here
         
@@ -74,5 +79,16 @@ public class FileHandlingActivity {
         writeToFile("Backup/backup.txt", combinedData);
 
         // g. List all files in both directories
+        File[] JavaFileSystemFiles = listFiles("JavaFileSystem");
+        File[] BackupFiles = listFiles("Backup");
+        
+        System.out.println("Main files:");
+        for (File f : JavaFileSystemFiles){
+            System.out.println(f.getName());
+        }
+        System.out.println("Backup files:");
+        for (File f : BackupFiles){
+            System.out.println(f.getName());
+        }
     }
 }
