@@ -48,6 +48,21 @@ public class FileHandlingActivity {
         return dir.listFiles();
     }
 
+    public static void debugFileOperation(){
+        try {
+            // Creating a file with an invalid name (forward slash is invalid for file names on many OS)
+            File file = new File("/fileName.txt");
+            
+            // Attempting to write to the invalid file
+            FileWriter writer = new FileWriter(file);
+            writer.write("Will this fail?");
+            writer.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace(); 
+        }
+    }
+
     public static void main(String[] args) {
         // Your code here
         
@@ -90,5 +105,7 @@ public class FileHandlingActivity {
         for (File f : BackupFiles){
             System.out.println(f.getName());
         }
+
+        debugFileOperation();
     }
 }
