@@ -51,8 +51,8 @@ public class FileHandlingActivity {
     public static void debugFileOperation(){
         try {
             // Creating a file with an invalid name (forward slash is invalid for file names on many OS)
-            File file = new File("/fileName.txt");
-            
+            File file = new File("fileName.txt"); //FIXED: removed '/'
+
             // Attempting to write to the invalid file
             FileWriter writer = new FileWriter(file);
             writer.write("Will this fail?");
